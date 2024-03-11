@@ -15,9 +15,9 @@ const {
   updateAdminPassword,
   updateUserPassword,
 } = require("../Controllers/SuperAdminCtrl");
+const  uploadSingleImageToCloudinary  = require('../Middlewares/singleImgUpload')
 
 const router = express.Router();
-
 
 // get hospital doctor  staff  patient
 router.get("/admin", getadmin);
@@ -28,7 +28,7 @@ router.get("/profile/:id", getbyid);
 
 router.post("/superadmin", createsuperadmin);
 router.post("/user", createuser);
-router.post("/admin",createadmin);
+router.post("/admin", upload.single('image'),uploadSingleImageToCloudinary, createadmin);
 
 // login
 router.post("/login", loginAdmin);

@@ -52,9 +52,15 @@ const getbyid = async (req, res) => {
 const createadmin = asyncHandler(async (req, res) => {
   try {
     const email = req.body.email;
+    const img = req.uploadedImageUrl
     const findUser = await Admin.findOne({ email: email });
     if (!findUser) {
-      const newUser = await Admin.create(req.body);
+      const newUser = await Admin.create(
+        {
+          image: img,
+          ...req.body
+        }
+      );
       res.json(newUser);
     } else {
       throw new Error("Admin already exist with this email");
