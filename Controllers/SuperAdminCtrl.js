@@ -5,7 +5,6 @@ const asyncHandler = require("express-async-handler");
 const { generateToken } = require("../config/jwtToken");
 const { generateRefreshToken } = require("../config/refreshtoken");
 
-
 const getadmin = async (req, res) => {
   try {
     const result = await Admin.find();
