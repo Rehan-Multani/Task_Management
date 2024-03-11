@@ -35,10 +35,8 @@ const getsuperadmin = async (req, res) => {
 
 const getbyid = async (req, res) => {
   try {
-    const { id } = req.params;
-    validateMongoDbId(id);
-    const myUser = await User.findById(id);
-    const myAdmin = await admin.findById(id);
+    const myUser = await User.findById({ _id: req.params.id });
+    const myAdmin = await admin.findById({ _id: req.params.id });
     if (myAdmin) {
       res.json(myAdmin);
     } else if (myUser) {
