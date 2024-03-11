@@ -30,8 +30,7 @@ const department = mongoose.Schema({
         required: true,
     },
     companyId: {
-        type: String,
-        required: true,
+        type: mongoose.Schema.Types.ObjectId,
     }
 },
     {
