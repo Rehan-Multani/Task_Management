@@ -20,6 +20,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 
 app.use("/api", require("./Routers/SuperAdminRoute"))
+app.use("/api/task", require("./Routers/TaskRoute"))
+
 
 app.listen(PORT, () => {
   console.log(`Task Management Server is running at PORT ${PORT}🥰🥰🥰`)
