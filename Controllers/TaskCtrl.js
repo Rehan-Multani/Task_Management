@@ -14,25 +14,27 @@ const Getdata = async (req, resp) => {
     }
 }
 const Postdata = async (req, res) => {
-
-    const data = await db.findOne({ companyId: req.body.companyId })
-    if (data) {
-        res.json("This comapany Id alraeday Use")
-    } else {
-        if (req.uploadedImageUrl) {
-          img = req.uploadedImageUrl;
-        }
-        const img = req.uploadedImageUrl
-        const newUser = await db.create(
-            {
+    try {
+        const data = await db.findOne({ companyId: req.body.companyId });
+        if (data) {
+            return res.status(400).json("This company Id already in use");
+        } else {
+            let img; // Declare img variable here
+            if (req.uploadedImageUrl) {
+                img = req.uploadedImageUrl;
+            }
+            const newUser = await db.create({
                 descriptionFile: img,
                 ...req.body
-            }
-        );
-
-        res.json(newUser);
+            });
+            return res.status(200).json(newUser);
+        }
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json("Internal Server Error");
     }
 };
+
 const Putdata = async (req, res) => {
     try {
         const img = req.uploadedImageUrl
