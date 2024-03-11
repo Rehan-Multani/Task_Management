@@ -36,7 +36,7 @@ const getsuperadmin = async (req, res) => {
 const getbyid = async (req, res) => {
   try {
     const myUser = await User.findById({ _id: req.params.id });
-    const myAdmin = await admin.findById({ _id: req.params.id });
+    const myAdmin = await Admin.findById({ _id: req.params.id });
     if (myAdmin) {
       res.json(myAdmin);
     } else if (myUser) {
