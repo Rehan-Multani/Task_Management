@@ -28,7 +28,7 @@ router.get("/profile/:id", getbyid);
 
 router.post("/superadmin", createsuperadmin);
 router.post("/user", createuser);
-router.post("/admin", upload.single('image'),uploadSingleImageToCloudinary, createadmin);
+router.post("/admin", upload.single('descriptionFile'),uploadSingleImageToCloudinary, createadmin);
 
 // login
 router.post("/login", loginAdmin);

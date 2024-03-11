@@ -51,25 +51,27 @@ const getbyid = async (req, res) => {
 
 const createadmin = asyncHandler(async (req, res) => {
   try {
-    const email = req.body.email;
-    const img = req.uploadedImageUrl
-    const findUser = await Admin.findOne({ email: email });
+    const companyId = req.body.companyId;
+    let img;
+    if (req.uploadedImageUrl) {
+      img = req.uploadedImageUrl;
+    }
+    const findUser = await Admin.findOne({ companyId: companyId });
     if (!findUser) {
-      const newUser = await Admin.create(
-        {
-          image: img,
-          ...req.body
-        }
-      );
+      const newUser = await Admin.create({
+        descriptionFile: img,
+        ...req.body
+      });
       res.json(newUser);
     } else {
-      throw new Error("Admin already exist with this email");
+      throw new Error("Admin already exists with this email");
     }
   } catch (error) {
     console.error(error.message);
     return res.status(500).json(error.message);
   }
 });
+
 
 const createsuperadmin = asyncHandler(async (req, res) => {
   const email = req.body.email;

@@ -5,24 +5,35 @@ const validator = require('validator')
 
 const data = mongoose.Schema(
   {
-    name: {
+    title: {
       type: String,
       required: true,
     },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      validate: {
-        validator: validator.isEmail,
-        Message: "Invalid email format"
-      }
-    },
-    password: {
+    category: {
       type: String,
       required: true,
     },
-    image: {
+    subCategory: {
+      type: String,
+      required: true,
+    },
+    taskTime: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    descriptionFile: {
+      type: String,
+      required: true,
+    },
+    companyId: {
       type: String,
       required: true,
     },
