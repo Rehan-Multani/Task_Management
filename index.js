@@ -21,8 +21,10 @@ app.use(cookieParser())
 
 app.use("/api", require("./Routers/SuperAdminRoute"))
 app.use("/api/task", require("./Routers/TaskRoute"))
+app.use("/api/category", require("./Routers/CategoryRoute"))
+app.use("/api/subcategory", require("./Routers/SubcategoryRoute"))
 
 
 app.listen(PORT, () => {
-  console.log(`Task Management Server is running at PORT ${PORT}🥰🥰🥰`)
+  console.log(`Task Management Server is running at PORT ${PORT} 🥰🥰🥰`)
 })  
