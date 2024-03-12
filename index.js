@@ -24,8 +24,7 @@ app.use("/api/task", require("./Routers/TaskRoute"))
 app.use("/api/category", require("./Routers/CategoryRoute"))
 app.use("/api/subcategory", require("./Routers/SubcategoryRoute"))
 app.use("/api/rating", require("./Routers/RatingRoute"))
-
-
+app.use("/api/uploadtask", require("./Routers/UploadTaskRoute"))
 
 app.listen(PORT, () => {
   console.log(`Task Management Server is running at PORT ${PORT} 🥰🥰🥰`)
