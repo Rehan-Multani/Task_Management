@@ -23,6 +23,8 @@ app.use("/api", require("./Routers/SuperAdminRoute"))
 app.use("/api/task", require("./Routers/TaskRoute"))
 app.use("/api/category", require("./Routers/CategoryRoute"))
 app.use("/api/subcategory", require("./Routers/SubcategoryRoute"))
+app.use("/api/rating", require("./Routers/RatingRoute"))
+
 
 
 app.listen(PORT, () => {
