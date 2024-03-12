@@ -22,6 +22,10 @@ const data = mongoose.Schema(
       type: String,
       required: true,
     },
+    skills: {
+      type: String,
+      required: true,
+    },
     role: {
       type: String,
       required: true,
