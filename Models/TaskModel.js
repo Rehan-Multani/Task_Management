@@ -3,31 +3,25 @@ const mongoose = require("mongoose");
 const department = mongoose.Schema({
 
     title: {
-        type: String,
-        required: true,
+        type: String
     },
     category: {
-        type: String,
-        required: true,
+        type: String
     },
     subCategory: {
-        type: String,
-        required: true,
+        type: String
     },
     price: {
-        type: String,
-        required: true,
+        type: String
     },
     description: {
-        type: String,
-        required: true,
+        type: String
     },
     descriptionFile: {
-        type: String,
+        type: String
     },
     taskTime: {
-        type: String,
-        required: true,
+        type: String
     },
     companyId: {
         type: mongoose.Schema.Types.ObjectId,
@@ -35,6 +29,6 @@ const department = mongoose.Schema({
 },
     {
         timestamps: true,
-    },
+    }
 )
 module.exports = mongoose.model("tasks", department);
