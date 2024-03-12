@@ -13,6 +13,16 @@ const Getdata = async (req, resp) => {
 
     }
 }
+
+const Getdata1 = async (req, resp) => {
+    try {
+        const result = await db.find({ userId: req.params.userId })
+        resp.send(result)
+    } catch (error) {
+        resp.status(404).json(error.message)
+
+    }
+}
 const Postdata = async (req, res) => {
     try {
         let img; // Declare img variable here
@@ -58,4 +68,4 @@ const DeleteData = async (req, res) => {
     }
 }
 
-module.exports = { getpaginate, Getdata, Postdata, Putdata, DeleteData };
+module.exports = { Getdata1,getpaginate, Getdata, Postdata, Putdata, DeleteData };

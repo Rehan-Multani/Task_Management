@@ -14,6 +14,9 @@ const department = mongoose.Schema({
     taskTime: {
         type: String
     },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId
+    }
 },
     {
         timestamps: true,
