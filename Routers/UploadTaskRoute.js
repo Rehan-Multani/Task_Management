@@ -9,7 +9,6 @@ const uploadSingleImageToCloudinary = require('../Middlewares/singleImgUpload')
 
 router.get("/", getpaginate)
 router.get("/:id", Getdata)
-router.get("/get/:userId", Getdata1)
 
 router.post("/", upload.single('descriptionFile'), uploadSingleImageToCloudinary, Postdata)
 router.put("/:id", upload.single('descriptionFile'), uploadSingleImageToCloudinary, Putdata)
